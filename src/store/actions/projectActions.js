@@ -1,15 +1,16 @@
 export const createProject = (project) => {
   return (dispatch, getState, {getFirestore}) => {
 
-    // console.log('getstate', getState().firebase.auth.uid);
+    const profile = getState().firebase.profile;
+    const authorId = getState().firebase.auth.uid;
 
     // make async call to database
     const firestore = getFirestore();
     firestore.collection('projects').add({
       ...project,
-      authorFirstName: 'Ilson',
-      authorLastName: 'Biscuola',
-      authorId: '1',
+      authorFirstName: profile.firstName,
+      authorLastName: profile.lastName,
+      authorId: authorId,
       createdAt: new Date()
     }).then(() => {
       dispatch({ type: 'CREATE_PROJECT_SUCCESS' });
