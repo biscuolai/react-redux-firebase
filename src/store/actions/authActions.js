@@ -1,5 +1,5 @@
 export const signIn = (credentials) => {
-  return (dispatch, getState, { getFirebase, getFirestore }) => {
+  return (dispatch, getState, { getFirebase }) => {
     const firebase = getFirebase();
     // const firestore = getFirestore();
 

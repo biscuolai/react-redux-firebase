@@ -8,7 +8,6 @@ const createNotification = ((notification) => {
     .then(doc => console.log('notification added', doc));
 });
 
-
 exports.projectCreated = functions.firestore
   .document('projects/{projectId}')
   .onCreate(doc => {
